@@ -210,3 +210,8 @@ body.dark-mode{
   }
 
                   }
+.gold-text {
+  background: linear-gradient(90deg, #f5d97e, #d4af37, #f5d97e);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
