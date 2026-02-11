@@ -1,0 +1,250 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Eternal Journey</title><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet"><style>
+
+/* ================= ROOT ================= */
+
+:root {
+  --bg-color: #0f0f1a;
+  --text-color: #ffffff;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background: var(--bg-color);
+  color: var(--text-color);
+  transition: 0.4s ease;
+  overflow-x: hidden;
+}
+
+.light-mode {
+  --bg-color: #fff0f6;
+  --text-color: #222;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* ================= NAVBAR ================= */
+
+nav {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  padding: 15px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  backdrop-filter: blur(20px);
+  background: rgba(0,0,0,0.4);
+  z-index: 1000;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin-left: 20px;
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+nav a:hover {
+  color: #f5d97e;
+}
+
+.toggle-btn {
+  cursor: pointer;
+}
+
+/* ================= HERO ================= */
+
+.hero {
+  position: relative;
+  height: 100vh;
+  background: url("swan.jpg") center/cover no-repeat fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0,0,0,0.6),
+    rgba(0,0,0,0.85)
+  );
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+.luxury-glow {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.5rem,6vw,4rem);
+  color: #f5d97e;
+  letter-spacing: 2px;
+  text-shadow:
+    0 0 10px rgba(212,175,55,0.7),
+    0 0 30px rgba(212,175,55,0.6);
+}
+
+.subtitle {
+  margin-top: 20px;
+  font-size: 1rem;
+  opacity: 0.9;
+}
+
+/* ================= TIMER ================= */
+
+.timer {
+  margin-top: 25px;
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+}
+
+/* ================= SECTION ================= */
+
+.section {
+  padding: 100px 20px;
+  text-align: center;
+}
+
+.glass-card {
+  max-width: 700px;
+  margin: auto;
+  padding: 40px;
+  background: rgba(255,255,255,0.07);
+  backdrop-filter: blur(30px);
+  border-radius: 25px;
+  border: 1px solid rgba(255,255,255,0.2);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+}
+
+.section h2 {
+  font-family: 'Playfair Display', serif;
+  margin-bottom: 30px;
+}
+
+/* ================= REVEAL ================= */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(60px);
+  transition: 1s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ================= PARTICLES ================= */
+
+.particle {
+  position: fixed;
+  bottom: -10px;
+  width: 6px;
+  height: 6px;
+  background: gold;
+  border-radius: 50%;
+  opacity: 0.7;
+  animation: floatUp linear forwards;
+}
+
+@keyframes floatUp {
+  to {
+    transform: translateY(-110vh);
+    opacity: 0;
+  }
+}
+
+/* ================= MOBILE ================= */
+
+@media (max-width:768px){
+  nav { padding: 15px 20px; }
+  nav a { font-size: 12px; margin-left: 12px; }
+}
+
+</style></head><body><nav>
+  <div>❤️ Our Story</div>
+  <div>
+    <a href="#letter">Love Letter</a>
+    <a href="#memory">Memories</a>
+    <span class="toggle-btn" onclick="toggleMode()">🌙</span>
+  </div>
+</nav><section class="hero">
+  <div class="hero-content">
+    <h1 class="luxury-glow">Our Eternal Journey</h1>
+    <div class="subtitle">From October 2024 until forever</div>
+    <div class="timer" id="timer"></div>
+  </div>
+</section><section id="letter" class="section reveal">
+  <h2>Love Letter 💌</h2>
+  <div class="glass-card">
+    The day I met you, my world changed forever.  
+    Your smile became my sunrise,  
+    your voice my favorite melody,  
+    and your heart my forever home.
+  </div>
+</section><section id="memory" class="section reveal">
+  <h2>Our Beautiful Memories</h2>
+  <div class="glass-card">
+    Every moment with you is a chapter of magic,
+    written by destiny and sealed with love.
+  </div>
+</section><script>
+
+/* DARK MODE */
+function toggleMode(){
+  document.body.classList.toggle("light-mode");
+}
+
+/* SCROLL REVEAL */
+const reveals = document.querySelectorAll(".reveal");
+window.addEventListener("scroll",()=>{
+  reveals.forEach(el=>{
+    if(el.getBoundingClientRect().top < window.innerHeight - 100){
+      el.classList.add("active");
+    }
+  });
+});
+
+/* PARTICLES */
+function createParticle(){
+  const particle = document.createElement("div");
+  particle.classList.add("particle");
+  document.body.appendChild(particle);
+  particle.style.left = Math.random()*window.innerWidth + "px";
+  particle.style.animationDuration = 5 + Math.random()*5 + "s";
+  setTimeout(()=>particle.remove(),10000);
+}
+setInterval(createParticle,400);
+
+/* TIMER FROM OCTOBER 1 2024 */
+const startDate = new Date("October 1, 2024 00:00:00").getTime();
+const timerEl = document.getElementById("timer");
+
+setInterval(()=>{
+  const now = new Date().getTime();
+  const diff = now - startDate;
+
+  const days = Math.floor(diff/(1000*60*60*24));
+  const hours = Math.floor((diff%(1000*60*60*24))/(1000*60*60));
+  const minutes = Math.floor((diff%(1000*60*60))/(1000*60));
+  const seconds = Math.floor((diff%(1000*60))/1000);
+
+  timerEl.innerHTML = days+" Days "+hours+"h "+minutes+"m "+seconds+"s";
+},1000);
+
+</script></body>
+</html>
