@@ -23,17 +23,36 @@ body::before{
   z-index:-1;
 }
 
-.navbar{
-  position:fixed;
-  top:0;
-  width:100%;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:15px 30px;
-  backdrop-filter:blur(10px);
-  background:rgba(0,0,0,0.2);
-  z-index:1000;
+/* Navbar */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 20px;
+  backdrop-filter: blur(12px);
+  background: rgba(0,0,0,0.4);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+}
+
+nav ul {
+  display: flex;
+  gap: 18px;
+  list-style: none;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: white;
+  font-size: 15px;   /* 🔥 age 18px thakle eta replace koro */
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+nav ul li a:hover {
+  color: #ffb6d9;
 }
 .navbar ul{display:flex;gap:20px;list-style:none}
 .navbar a{color:white;text-decoration:none;font-weight:500}
@@ -160,3 +179,23 @@ body::before{
 body.dark-mode{
   background: radial-gradient(circle at top,#1a001f,#000000);
 }
+/* Mobile Fix */
+@media (max-width: 768px) {
+
+  nav ul {
+    gap: 12px;
+  }
+
+  nav ul li a {
+    font-size: 13px;
+  }
+
+  .hero h1 {
+    font-size: 32px;
+  }
+
+  .hero p {
+    font-size: 15px;
+  }
+
+                  }
