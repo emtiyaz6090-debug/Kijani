@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Beautiful Journey</title>
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="logo">💖 Our Story</div>
+  <ul>
+    <li><a href="#home">Home</a></li>
+    <li><a href="#quiz">Quiz</a></li>
+    <li><a href="#memories">Memories</a></li>
+    <li><a href="#letter">Letter</a></li>
+  </ul>
+  <button id="modeToggle">🌙</button>
+</nav>
+
+<section id="home" class="hero">
+  <h1>Our Beautiful Journey ✨</h1>
+  <p>From October 2024 until forever — every second with you is magic.</p>
+  <div class="timer" id="relationshipTimer"></div>
+  <button class="primary-btn" onclick="scrollToSection('quiz')">Explore Our Love</button>
+</section>
+
+<section id="quiz" class="section">
+  <h2>Love Quiz 💌</h2>
+  <p id="quizQuestion">Who said "I love you" first?</p>
+  <div class="quiz-buttons">
+    <button onclick="checkAnswer(this)">You</button>
+    <button onclick="checkAnswer(this)">Me</button>
+  </div>
+  <p id="quizResult"></p>
+</section>
+
+<section id="memories" class="section">
+  <h2>Our Memories 📸</h2>
+  <div class="slider">
+    <img id="slideImage" src="img1.jpg">
+  </div>
+</section>
+
+<section id="letter" class="section">
+  <h2>Love Letter 💖</h2>
+  <div class="letter">
+    From the first moment in October 2024,  
+    my life changed beautifully.  
+    You are my calm, my chaos, my forever.  
+    Every heartbeat whispers your name.
+  </div>
+</section>
+
+<div class="hearts"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
